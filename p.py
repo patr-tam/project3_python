@@ -8,12 +8,21 @@ if test is False:
         print("Finished downloading")
     
 else:
-    '''line = 'local - - [24/Oct/1994:14:01:02 -0600] "GET index.html HTTP/1.0" 200 150'
-    print(re.split('.*\[(.*) .*\] \".* (.*) .*\" (\d{3})',line))'''
-    
+    file2 = open('testfile.txt','w')       
     print (os.path.isfile("log.txt"))
     file=open('log.txt')
+    count=0
     for line in file:
-        print(re.split('.*\[(.*) .*\] \".* (.*) .*\" (\d{3})',line))
+        a=re.split('.*\[(.*) .*\] \".* (.*) .*\" (\d{3})',line)
+        #if ray is not certain length ignore 
+        #else:
+        if len(a) < 5:
+            #print(len(a))
+            count+=1
+            for item in a:
+                file2.write(item) 
+
+    print('count is', count)      
         #print(line.split()[0])
     file.close()
+    file2.close()
