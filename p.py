@@ -28,24 +28,7 @@ else:
     o95= open('oct95.txt', 'w')    
     #print (os.path.isfile("log.txt"))
     file=open('log.txt')
-    ercount=0
-    total=0
-    good=0
-    oct94=0
-    nov94=0
-    dec94=0
-    jan95=0
-    feb95=0
-    mar95=0
-    apr95=0
-    may95=0
-    jun95=0
-    jul95=0
-    aug95=0
-    sep95=0
-    oct95=0
-    
-    
+    ercount,total,good,oct94,nov94,dec94,jan95,feb95,mar95,apr95,may95,jun95,jul95,aug95,sep95,oct95,notsuc,redir=(0,)*18
     for line in file:
         total+=1
         #a=re.split('.*\[(.*) .*\] \".* (.*) .*\" (\d{3})',line)
@@ -59,10 +42,15 @@ else:
         month1,month2,month3,month4,month5,month6,month7,month8,month9,month10,month11,month12,month13 =([],)*13
         if len(parts)>=7:
             b=parts[1]
+            c=parts[6]
             month=b[3:6]
             year=b[7:11]
             date=b[0:11]
             good+=1 #find count
+            if c[0] == '4':
+                notsuc+=1
+            if c[0] == '3':
+                redir+=1
             if month == 'Oct' and year == '1994':  
                 oct94+=1
                 month1.append(line)
@@ -170,6 +158,8 @@ else:
     print('bad logs:', ercount)
     bad=ercount/total
     print('percent of bad:', round((bad*100),2),'%')
+    print('percent logs not successful (error 4xx):', round(((notsuc/good)*100),2),'%')
+    print('percent requests redirected elsewhere (3xx):',round(((redir/good)*100),2),'%')
     #print('sum is', sumofm)
         #print(line.split()[0])
     file.close()
