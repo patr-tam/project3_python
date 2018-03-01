@@ -44,6 +44,8 @@ else:
     aug95=0
     sep95=0
     oct95=0
+    
+    
     for line in file:
         total+=1
         #a=re.split('.*\[(.*) .*\] \".* (.*) .*\" (\d{3})',line)
@@ -54,7 +56,7 @@ else:
         
         # Let's see what the regex grabbed...
         #print (parts)
-        h=[]
+        month1,month2,month3,month4,month5,month6,month7,month8,month9,month10,month11,month12,month13 =([],)*13
         if len(parts)>=7:
             b=parts[1]
             month=b[3:6]
@@ -63,56 +65,69 @@ else:
             good+=1 #find count
             if month == 'Oct' and year == '1994':  
                 oct94+=1
-                h.append(line)
-                for item in h:
+                month1.append(line)
+                for item in month1:
                     o94.write(item)                
             if month == 'Nov' and year == '1994':
                 nov94+=1
-                for item in parts:
-                    n94.write(item)                  
+                month2.append(line)
+                for item in month2:
+                    n94.write(item)  
+                    
             if month == 'Dec' and year == '1994':
                 dec94+=1  
-                for item in parts:
+                month3.append(line)
+                for item in month3:
                     d94.write(item)                  
             if month == 'Jan' and year == '1995':
                 jan95+=1
-                for item in parts:
+                month4.append(line)
+                for item in month4:
                     ja95.write(item)                  
             if month == 'Feb' and year == '1995':
                 feb95+=1   
-                for item in parts:
+                month5.append(line)
+                for item in month5:
                     f95.write(item)                  
             if month == 'Mar' and year == '1995':
                 mar95+=1  
-                for item in parts:
+                month6.append(line)
+                for item in month6:
                     m95.write(item)                  
             if month == 'Apr' and year == '1995':
                 apr95+=1 
-                for item in parts:
+                month7.append(line)
+                for item in month7:
                     a95.write(item)                  
             if month == 'May' and year == '1995':
                 may95+=1 
-                for item in parts:
+                month8.append(line)
+                for item in month8:
                     ma95.write(item)                  
             if month == 'Jun' and year == '1995':
-                jun95+=1   
-                for item in parts:
+                jun95+=1  
+                month9.append(line)
+                for item in month9:
                     ju95.write(item)                  
             if month == 'Jul' and year == '1995':
                 jul95+=1  
-                for item in parts:
+                month10.append(line)
+                for item in month10:
                     jl95.write(item)                  
             if month == 'Aug' and year == '1995':
-                aug95+=1  
-                for item in parts:
+                aug95+=1 
+                month11.append(line)
+                for item in month11:
                     au95.write(item)                  
             if month == 'Sep' and year == '1995':
                 sep95+=1 
-                for item in parts:
+                month12.append(line)
+                for item in month12:
                     s95.write(item)                  
             if month == 'Oct' and year == '1995':
                 oct95+=1 
-                for item in parts:
+                month13.append(line)
+                for item in month13:
                     o95.write(item)                  
             date2=datetime.strptime(date,"%d/%b/%Y")  
             #print(date2)
@@ -186,4 +201,3 @@ else:
     au95
     s95
     o95'''
-    
