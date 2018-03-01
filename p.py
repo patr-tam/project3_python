@@ -29,6 +29,7 @@ else:
    
     file=open('log.txt')
     ercount,total,good,oct94,nov94,dec94,jan95,feb95,mar95,apr95,may95,jun95,jul95,aug95,sep95,oct95,notsuc,redir=(0,)*18
+    a2=0
     for line in file:
         total+=1
         
@@ -50,6 +51,8 @@ else:
                 notsuc+=1
             if c[0] == '3':
                 redir+=1
+            if c[0] == '2':
+                a2+=1
             if month == 'Oct' and year == '1994':  
                 oct94+=1
                 month1.append(line)
@@ -129,7 +132,7 @@ else:
     print('Total requests including bad:', total)
     print('Good requests:', good)
     print('Bad requests:', ercount)
-     
+    print()
     
     print('Total requests in October 1994:',oct94)
     print('Total requests in November 1994:',nov94)
@@ -144,11 +147,12 @@ else:
     print('Total requests in August 1995:',aug95)
     print('Total requests in September 1995:',sep95)
     print('Total requests in October 1995:',oct95)
-    
+    print()
    
     print('Percent of bad requests:', round((bad*100),2),'%')
     print('Percent of requests not successful (error 4xx):', round(((notsuc/good)*100),2),'%')
     print('Percent of requests redirected elsewhere (3xx):',round(((redir/good)*100),2),'%')
+    #print("2xx requests:",round(((a2/good)*100),2),'%')
  
     file.close()
     file2.close()
