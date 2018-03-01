@@ -28,7 +28,7 @@ else:
     o95= open('oct95.txt', 'w')    
    
     file=open('log.txt')
-    ercount,total,good,oct94,nov94,dec94,jan95,feb95,mar95,apr95,may95,jun95,jul95,aug95,sep95,oct95,notsuc,redir=(0,)*18
+    ercount,total,good,oct94,nov94,dec94,jan95,feb95,mar95,apr95,may95,jun95,jul95,aug95,sep95,oct95,notsuc,redir,monday,tuesday,wednesday,thursday,friday,saturday,sunday=(0,)*25
     a2=0
     for line in file:
         total+=1
@@ -119,8 +119,24 @@ else:
                 month13.append(line)
                 for item in month13:
                     o95.write(item)                  
+            
+            
             date2=datetime.strptime(date,"%d/%b/%Y")  
-           
+            if date2.weekday() == 0: 
+                monday+=1
+            if date2.weekday() == 0: 
+                tuesday+=1
+            if date2.weekday() == 0:
+                wednesday+=1
+            if date2.weekday() == 0: 
+                thursday+=1
+            if date2.weekday() == 0:
+                friday+=1
+            if date2.weekday() == 0: 
+                saturday+=1
+            if date2.weekday() == 0: 
+                sunday+=1
+       
         if not parts or len(parts) < 7:
             errors.append(line)
             for item in errors:
@@ -134,6 +150,15 @@ else:
     print('Bad requests:', ercount)
     print()
     
+    print('Monday requests:',monday)
+    print('Tuesday requests:',tuesday)
+    print('Wednesday requests:',wednesday)
+    print('Thursday requests:',thursday)
+    print('Friday requests:',friday)
+    print('Saturday requests:',saturday)
+    print('Sunday requests:',sunday)
+    print()
+         
     print('Total requests in October 1994:',oct94)
     print('Total requests in November 1994:',nov94)
     print('Total requests in December 1994:',dec94)
