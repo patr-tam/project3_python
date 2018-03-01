@@ -124,17 +124,17 @@ else:
             date2=datetime.strptime(date,"%d/%b/%Y")  
             if date2.weekday() == 0: 
                 monday+=1
-            if date2.weekday() == 0: 
+            if date2.weekday() == 1: 
                 tuesday+=1
-            if date2.weekday() == 0:
+            if date2.weekday() == 2:
                 wednesday+=1
-            if date2.weekday() == 0: 
+            if date2.weekday() == 3: 
                 thursday+=1
-            if date2.weekday() == 0:
+            if date2.weekday() == 4:
                 friday+=1
-            if date2.weekday() == 0: 
+            if date2.weekday() == 5: 
                 saturday+=1
-            if date2.weekday() == 0: 
+            if date2.weekday() == 6: 
                 sunday+=1
        
         if not parts or len(parts) < 7:
