@@ -26,19 +26,18 @@ else:
     au95= open('aug95.txt', 'w')
     s95= open('sep95.txt', 'w')
     o95= open('oct95.txt', 'w')    
-    #print (os.path.isfile("log.txt"))
+   
     file=open('log.txt')
     ercount,total,good,oct94,nov94,dec94,jan95,feb95,mar95,apr95,may95,jun95,jul95,aug95,sep95,oct95,notsuc,redir=(0,)*18
     for line in file:
         total+=1
-        #a=re.split('.*\[(.*) .*\] \".* (.*) .*\" (\d{3})',line)
+        
         
         errors = [] # a list to store errors from the parsing process
 
         parts = regex.split(line)
         
-        # Let's see what the regex grabbed...
-        #print (parts)
+        
         month1,month2,month3,month4,month5,month6,month7,month8,month9,month10,month11,month12,month13 =([],)*13
         if len(parts)>=7:
             b=parts[1]
@@ -46,7 +45,7 @@ else:
             month=b[3:6]
             year=b[7:11]
             date=b[0:11]
-            good+=1 #find count
+            good+=1 
             if c[0] == '4':
                 notsuc+=1
             if c[0] == '3':
@@ -118,24 +117,14 @@ else:
                 for item in month13:
                     o95.write(item)                  
             date2=datetime.strptime(date,"%d/%b/%Y")  
-            #print(date2)
-        # Sanity check the line -- there should be 7 elements in the list (remember that index 0 has the whole string)
+           
         if not parts or len(parts) < 7:
-            #print("Error parsing line! Log entry added to ERRORS[] list...")
-            #errors=[]
             errors.append(line)
             for item in errors:
                 file2.write(item)
                 ercount+=1
         
-        # Now we can do something with the parts we grabbed...        
-        #if ray is not certain length ignore 
-        #else:            
-        ''' if len(a) < 5:
-            #print(len(a))
-            count+=1
-            for item in a:
-                file2.write(item) '''
+                     
                 
     print('error count is', ercount)    
     print('total logs for October 1994:',oct94)
@@ -160,8 +149,7 @@ else:
     print('percent of bad:', round((bad*100),2),'%')
     print('percent logs not successful (error 4xx):', round(((notsuc/good)*100),2),'%')
     print('percent requests redirected elsewhere (3xx):',round(((redir/good)*100),2),'%')
-    #print('sum is', sumofm)
-        #print(line.split()[0])
+ 
     file.close()
     file2.close()
     o94.close()
@@ -178,16 +166,3 @@ else:
     s95.close()
     o95.close()
     
-    '''o94
-    n94
-    d94
-    ja95
-    f95
-    m95
-    a95
-    ma95
-    ju95
-    jl95
-    au95
-    s95
-    o95'''
