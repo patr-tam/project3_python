@@ -124,31 +124,31 @@ else:
                 file2.write(item)
                 ercount+=1
         
-                     
-                
-    print('error count is', ercount)    
-    print('total logs for October 1994:',oct94)
-    print('total logs for November 1994:',nov94)
-    print('total logs for December 1994:',dec94)
-    print('total logs for January 1995:',jan95)
-    print('total logs for February 1995:',feb95)
-    print('total logs for March 1995:',mar95)
-    print('total logs for April 1995:',apr95)
-    print('total logs for May 1995:',may95)
-    print('total logs for June 1995:',jun95)
-    print('total logs for July 1995:',jul95)
-    print('total logs for August 1995:',aug95)
-    print('total logs for September 1995:',sep95)
-    print('total logs for October 1995:',oct95)
-    
-    sumofm= oct94+nov94+dec94+jan95+feb95+mar95+apr95+may95+jun95+jul95+aug95+sep95+oct95
-    print('total is', total)
-    print('good logs:', good)
-    print('bad logs:', ercount)
+    #sumofm= oct94+nov94+dec94+jan95+feb95+mar95+apr95+may95+jun95+jul95+aug95+sep95+oct95             
     bad=ercount/total
-    print('percent of bad:', round((bad*100),2),'%')
-    print('percent logs not successful (error 4xx):', round(((notsuc/good)*100),2),'%')
-    print('percent requests redirected elsewhere (3xx):',round(((redir/good)*100),2),'%')
+    print('Total requests including bad:', total)
+    print('Good requests:', good)
+    print('Bad requests:', ercount)
+     
+    
+    print('Total requests in October 1994:',oct94)
+    print('Total requests in November 1994:',nov94)
+    print('Total requests in December 1994:',dec94)
+    print('Total requests in January 1995:',jan95)
+    print('Total requests in February 1995:',feb95)
+    print('Total requests in March 1995:',mar95)
+    print('Total requests in April 1995:',apr95)
+    print('Total requests in May 1995:',may95)
+    print('Total requests in June 1995:',jun95)
+    print('Total requests in July 1995:',jul95)
+    print('Total requests in August 1995:',aug95)
+    print('Total requests in September 1995:',sep95)
+    print('Total requests in October 1995:',oct95)
+    
+   
+    print('Percent of bad requests:', round((bad*100),2),'%')
+    print('Percent of requests not successful (error 4xx):', round(((notsuc/good)*100),2),'%')
+    print('Percent of requests redirected elsewhere (3xx):',round(((redir/good)*100),2),'%')
  
     file.close()
     file2.close()
