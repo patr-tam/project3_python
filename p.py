@@ -11,7 +11,7 @@ def main():
         urllib.request.urlretrieve ("https://s3.amazonaws.com/tcmg476/http_access_log", "log.txt")
         if os.path.isfile("log.txt") is True:
             print("Finished downloading")
-        
+        main()
     else:
         file2 = open('logerrors.txt','w')
         o94= open('oct94.txt','w')
