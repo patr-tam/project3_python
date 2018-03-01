@@ -10,9 +10,10 @@ def main():
     if test is False:
         urllib.request.urlretrieve ("https://s3.amazonaws.com/tcmg476/http_access_log", "log.txt")
         if os.path.isfile("log.txt") is True:
-            print("Finished downloading")
+            print("Finished downloading log file.")
         main()
     else:
+        print()
         file2 = open('logerrors.txt','w')
         o94= open('oct94.txt','w')
         n94= open('nov94.txt', 'w')
